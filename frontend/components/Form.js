@@ -11,6 +11,9 @@ export default class Form extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleAdd(this.state.input);
+    this.setState({
+    input:''
+    })
   }
 
   handleChange = (e) => {
@@ -23,7 +26,7 @@ export default class Form extends React.Component {
   render() {
     return(
       <form>
-      <input onChange={this.handleChange}/>
+      <input value={this.state.input} onChange={this.handleChange}/>
       <button onClick={this.handleSubmit}>Add</button>
       </form>);
   }
